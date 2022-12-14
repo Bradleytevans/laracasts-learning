@@ -11,26 +11,36 @@
 <body>
 
     <?php
-    $movies = [
+    $books = [
         [
-            'title' => 'Space Jam',
-            'releaseDate' => '1990'
+            'name' => 'Do androids dream of electric sheep?',
+            'author' => 'Phillip Dick',
+            'purchaseUrl' => 'example.com',
+            'releaseDate' => '1968'
         ],
         [
-            'title' => 'inception',
-            'releaseDate' => '2001'
+            'name' => 'Project Hail Mary',
+            'author' => 'Andy Weir',
+            'purchaseUrl' => 'example.com',
+            'releaseDate' => '2021'
+        ],
+        [
+            'name' => 'The  Martian',
+            'author' => 'Andy Weir',
+            'purchaseUrl' => 'example.com',
+            'releaseDate' => '2011'
         ]
     ];
 
 
-    $filterMovies = array_filter($movies, function($movie) {
-        return $movie['releaseDate'] >= '2000';
+    $filteredBooks = array_filter($books, function($book) {
+        return $book['releaseDate'] >= 1950 && $book['releaseDate'] <= 2000;
     });
     ?>
     <ul>
-        <?php foreach ($filterMovies as $movie) : ?>
+        <?php foreach ($filteredBooks as $book) : ?>
             <li>
-                <?= $movie['title'] . ' : ' . 'Publised ' . $movie['releaseDate']; ?>
+                <a href="<?= $book['purchaseUrl'] ?>"><?= $book['name'] . ' : ' . 'Publised ' . $book['releaseDate']; ?></a>
             </li>
         <?php endforeach; ?>
     </ul>
