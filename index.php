@@ -32,20 +32,9 @@
         ]
     ];
 
-    function filter($items, $fn)
-    {
-        $filteredItems = [];
-        foreach ($items as $item) {
-            if ($fn($item)) {
-                $filteredItems[] = $item;
-            }
-        }
 
-        return $filteredItems;
-    }
-
-    $filteredBooks = filter($books, function($book) {
-        return $book['releaseDate'] < 2000;
+    $filteredBooks = array_filter($books, function($book) {
+        return $book['author'] = 'Andy Weir';
     });
     ?>
     <ul>
