@@ -23,9 +23,15 @@ class Database
 
         return $this;
     }
+
     public function find()
     {
         return $this->statement->fetch();
+    }
+
+    public function findAll()
+    {
+        return $this->statement->fetchAll();
     }
 
     public function findOrFail()
@@ -33,7 +39,7 @@ class Database
         $result = $this->find();
 
 
-        if (! $result) {
+        if (!$result) {
             abort();
         }
 
